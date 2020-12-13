@@ -12,7 +12,11 @@ const Searchbar = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input value={query} onChange={(e) => setQuery(e.target.value)}></input>
+      <input
+        value={query}
+        placeholder="Search Breweries"
+        onChange={(e) => setQuery(e.target.value)}
+      ></input>
     </form>
   );
 };

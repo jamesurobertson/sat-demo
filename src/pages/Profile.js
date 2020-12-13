@@ -35,17 +35,43 @@ const Profile = () => {
     setUser(user.id === 1 ? barry : james);
     history.push("/");
   };
+
+  const unFavoriteBrewery = (brewery) => {
+    const newFavorites = user.favBrews.filter((brew) => brew.id !== brewery.id);
+    setUser({ ...user, favBrews: newFavorites });
+  };
   return (
     <>
-      <div> This is {user.id}'s Profile Page</div>
-      <div> My name is {user.name}</div>
-      <div>
-        {user.name} is {user.age} years old
-      </div>
-      <div>My favorite food is {user.favFood}</div>
+      <div> This is user {user.id}'s Profile Page</div>
+      <div> His name is {user.name}</div>
+      <div>He is {user.age} years old</div>
+      <div>His food is {user.favFood}</div>
       <button onClick={increaseAge}>Increase Age</button>
-      <button onClick={changeUser}>change User</button>
-      <button onClick={changeUserAndGoHome}>change Use and go home</button>
+      <button onClick={changeUser}>Change User</button>
+      <button onClick={changeUserAndGoHome}>Swap user and go home</button>
+      <h1>{user.name}'s Favorite Brews:</h1>
+      {user.favBrews.length === 0
+        ? "Search for brews to add to your favorites"
+        : user.favBrews.map((brewery) => {
+            console.log(brewery);
+            const { id, city, name, phone, website_url } = brewery;
+
+            return (
+              <div key={id}>
+                <h2>{name}</h2>
+                <div>City: {city}</div>
+                <div>Name: {name}</div>
+                <div>Phone number: {phone}</div>
+                <a href={website_url}>{website_url}</a>
+                <button
+                  style={{ display: "block" }}
+                  onClick={() => unFavoriteBrewery(brewery)}
+                >
+                  Unfavorite
+                </button>
+              </div>
+            );
+          })}
     </>
   );
 };
