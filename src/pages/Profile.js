@@ -1,6 +1,22 @@
 import { useHistory } from "react-router-dom";
 import { useUser } from "../context/UserContext";
 
+const barry = {
+  id: 2,
+  name: "Barry",
+  age: 25,
+  favBrews: [],
+  favFood: "pizza",
+};
+
+const james = {
+  id: 1,
+  name: "James",
+  age: 27,
+  favBrews: [],
+  favFood: "tacos",
+};
+
 const Profile = () => {
   const { user, setUser } = useUser();
 
@@ -12,27 +28,11 @@ const Profile = () => {
   };
 
   const changeUser = () => {
-    const newUser = {
-      id: 2,
-      name: "Barry",
-      age: 25,
-      favBrews: [],
-      favFood: "pizza",
-    };
-
-    setUser(newUser);
+    setUser(user.id === 1 ? barry : james);
   };
 
   const changeUserAndGoHome = () => {
-    const newUser = {
-      id: 2,
-      name: "Barry",
-      age: 25,
-      favBrews: [],
-      favFood: "pizza",
-    };
-
-    setUser(newUser);
+    setUser(user.id === 1 ? barry : james);
     history.push("/");
   };
   return (

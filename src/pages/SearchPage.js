@@ -19,6 +19,9 @@ const SearchPage = () => {
     })();
   }, [searchParam]);
 
+  if (results.length === 0) {
+    return <h1>No results found</h1>;
+  }
   return (
     <div>
       {results.map((brewery) => {

@@ -1,22 +1,20 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const Breweries = () => {
+const Searchbar = () => {
   const [query, setQuery] = useState("");
   const history = useHistory();
 
-  const submitForm = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    history.push(`/brewery/${query}`);
+    history.push(`/explore/${query}`);
   };
 
   return (
-    <form onSubmit={submitForm}>
-      query:
+    <form onSubmit={handleSubmit}>
       <input value={query} onChange={(e) => setQuery(e.target.value)}></input>
     </form>
   );
 };
 
-export default Breweries;
+export default Searchbar;

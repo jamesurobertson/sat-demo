@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
+import { useUser } from "../context/UserContext";
 
 const Home = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useUser();
 
   return (
     <div>

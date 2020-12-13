@@ -2,7 +2,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import Breweries from "./pages/Breweries";
 import SearchPage from "./pages/SearchPage";
 
 const Routes = () => (
@@ -12,10 +11,7 @@ const Routes = () => (
       <Route path="/profile/:profileId">
         <Profile />
       </Route>
-      <Route path="/breweries">
-        <Breweries />
-      </Route>
-      <Route path="/brewery/:searchParam">
+      <Route path="/explore/:searchParam">
         <SearchPage />
       </Route>
       <Route exact path="/">
