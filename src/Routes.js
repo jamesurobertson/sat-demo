@@ -15,12 +15,11 @@ const Routes = () => (
       <Route path="/breweries">
         <Breweries />
       </Route>
-      <Route exact path="/">
-        <Home />
-      </Route>
-
       <Route path="/brewery/:searchParam">
         <SearchPage />
+      </Route>
+      <Route exact path="/">
+        <Home />
       </Route>
       <Route path="*">
         <h1> 404 Page not found</h1>

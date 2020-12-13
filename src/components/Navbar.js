@@ -1,10 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
+import { useUser } from "../context/UserContext";
 
 const Navbar = () => {
-  const { user } = useContext(UserContext);
-  console.log("in navbad", user);
+  const { user } = useUser();
   return (
     <ul style={{ display: "flex", listStyle: "none" }}>
       <li style={{ padding: "5px" }}>

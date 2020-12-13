@@ -1,4 +1,4 @@
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useUser } from "../context/UserContext";
 
 const Profile = () => {
@@ -6,9 +6,7 @@ const Profile = () => {
 
   const history = useHistory();
 
-  console.log(history);
   const increaseAge = () => {
-    console.log("increase age");
     const newAge = user.age + 1;
     setUser({ ...user, age: newAge });
   };
@@ -35,7 +33,7 @@ const Profile = () => {
     };
 
     setUser(newUser);
-    history.push("/jamekajsdlkjealk");
+    history.push("/");
   };
   return (
     <>
