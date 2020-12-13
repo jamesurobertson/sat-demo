@@ -2,12 +2,11 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useUser } from "../context/UserContext";
 
-const SearchPage = () => {
+const Explore = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { searchParam } = useParams();
-
   const { user, setUser } = useUser();
+  const { searchParam } = useParams();
 
   useEffect(() => {
     (async () => {
@@ -42,7 +41,6 @@ const SearchPage = () => {
     <div>
       {results.map((brewery) => {
         const { name, state, website_url, phone, id } = brewery;
-
         const isFav = user.favBrews.some((brew) => brew.id === id);
 
         return (
@@ -75,4 +73,4 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
+export default Explore;

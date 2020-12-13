@@ -19,7 +19,6 @@ const james = {
 
 const Profile = () => {
   const { user, setUser } = useUser();
-
   const history = useHistory();
 
   const increaseAge = () => {
@@ -27,9 +26,7 @@ const Profile = () => {
     setUser({ ...user, age: newAge });
   };
 
-  const changeUser = () => {
-    setUser(user.id === 1 ? barry : james);
-  };
+  const changeUser = () => setUser(user.id === 1 ? barry : james);
 
   const changeUserAndGoHome = () => {
     setUser(user.id === 1 ? barry : james);
@@ -45,7 +42,11 @@ const Profile = () => {
       <div> This is user {user.id}'s Profile Page</div>
       <div> His name is {user.name}</div>
       <div>He is {user.age} years old</div>
-      <div>His food is {user.favFood}</div>
+      <div>
+        His favorite food{" "}
+        {user.favFood[user.favFood.length - 1] === "s" ? "are " : "is "}
+        {user.favFood}
+      </div>
       <button onClick={increaseAge}>Increase Age</button>
       <button onClick={changeUser}>Change User</button>
       <button onClick={changeUserAndGoHome}>Swap user and go home</button>

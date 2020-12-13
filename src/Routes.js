@@ -2,7 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import SearchPage from "./pages/SearchPage";
+import Explore from "./pages/Explore";
 
 const Routes = () => (
   <BrowserRouter>
@@ -12,7 +12,7 @@ const Routes = () => (
         <Profile />
       </Route>
       <Route path="/explore/:searchParam">
-        <SearchPage />
+        <Explore />
       </Route>
       <Route exact path="/">
         <Home />
